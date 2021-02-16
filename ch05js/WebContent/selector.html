@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>a</div>
+<div>b</div>
+<div>c</div>
+<script type="text/javascript">
+//div 태그 찾아보기
+	var objects = document.getElementsByTagName("div");
+	alert(objects);
+	// java의 향상된 for 문을 사용 못함. - js 문법에 없음
+	for(i=0; i < objects.length; i++){
+		alert(objects[i]);
+		alert(objects[i].innerHTML);
+	}
+</script>
+</body>
+</html>

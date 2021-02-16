@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>버튼을 클릭하면 이동하는 박스만들기</title>
+
+<script type="text/javascript" src="util.js"></script>
+
+<style type="text/css">
+table{
+	font-size: 1.5em; /* 1em - 보통크기. em 배수 */
+	font-weight: 900; /* 글자의 두께 : 100 ~ 900 */
+	width: 100px;
+	text-align: center; /* table 태그 안에 글자를 좌우 가운데 정렬 */
+	margin: 0 auto; /* 테이블 전체를 가운데 정렬 */
+}
+.moveBtn:hover{
+	background: black;
+	color: white;
+	cursor: pointer;
+}
+
+#moveDiv{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	/* top속성을 가져오면 150px -> 아래 누르면 150px + 10px => 160 px :150px -> 숫자 parseInt() + 10 + "px" 
+		top의 범위 150px ~ 300px / left의 범위 : 10px ~ 500px
+	*/
+	/* js에서 특별한 설정없이 사용하려면 div.offsetTop : pixel 단위의 숫자로 받아 낼 수 있다. */
+	top: 150px;
+	left: 10px;
+	background: orange;
+}
+</style>
+
+<script type="text/javascript">
+
+// var div;
+
+/* onload 이벤트에서 시작과 함께 한번만 실행이되는 함수. */
+function init(){
+	div = sel("moveDiv");
+	div.style.top = "150px";
+	div.style.left = "10px";
+}
+
+
+// top 속성을 점점 작게
+function up(){
+	// alert("up");
+	// 객체를 선택
+	var div = sel("moveDiv");
+	var divTop = div.offsetTop;
+	// alert(divTop + "(" + (typeof divTop) + ")");
+	var moveTop = divTop - 10;
+	if(moveTop < 150) alert("더 이상 위로 올릴 수 없습니다.");
+	else div.style.top = moveTop + "px"; // 실제적인 이동 부분
+}
+
+// left 속성을 점점 작게
+function left(){
+	// alert("left");
+	// 객체를 선택
+	var div = sel("moveDiv");
+	var divLeft = div.offsetLeft;
+	// alert(divLeft + "(" + (typeof divLeft) + ")");
+	var moveLeft = divLeft + (-10);
+	if(moveLeft < 10) alert("더 이상 왼쪽으로 이동시킬 수 없습니다.");
+	else div.style.left = moveLeft + "px"; // 설정을 바꾸면 이동이 된다.
+}
+
+// left 속성을 점점 크게
+function right(){
+	// alert("right"); // ok
+	// 움직일 div 객체 선택
+	var div = sel("moveDiv");
+	var divLeft = div.offsetLeft;
+	// alert(divLeft + "("+ (typeof divLeft) +")"); // number type - 10 : + 연산 가능
+	var moveLeft = divLeft + 10;
+	if(moveLeft > 500) alert("더 이상 오른쪽을 이동할 수 없습니다.");
+	else div.style.left = moveLeft + "px"; // 여기가 움직이게 하는 부분
+}
+
+// top 속성을 점점 크게
+function down(){
+	// alert("down");
+	// 움직일 div 객체 선택
+	var div = sel("moveDiv");
+	var divTop = div.offsetTop;
+	// alert(divTop + "("+ (typeof divTop) +")");
+	var moveTop = divTop + 10; // top의 설정 값이 커지면 밑으로 내려간다.
+	// moveTop이 300을 넘어가면 더 이상 내려갈 수 없다고 메시지를 보이고 움직이지는 않는다.
+	if(moveTop > 300) alert("더 이상 내려갈 수 없습니다!");
+	else div.style.top = moveTop + "px";
+}
+
+// 위에 up(), left(), right(), down()는 사용하지 않습니다. ----------------------
+// move(direction:방향("top","left"), 거리(+10, -10))
+function move(direction, distance){
+	// 데이터 확인
+	// alert("방향:" + direction + ", 거리 : " +  distance);
+	var div = sel("moveDiv");
+	var divInfo = 0;
+	if(direction == "top") divInfo = div.offsetTop;
+	else if(direction == "left") divInfo = div.offsetLeft;
+	else {
+		alert("잘못된 방향이 지정되었습니다. - " + direction);
+		return;
+	}
+	
+	var moveInfo = divInfo + distance;
+	// 위 아래 이동 처리
+	if(direction == "top"){
+		if(moveInfo < 150) alert("더 이상 위로 이동시킬 수 없습니다.");
+		else if(moveInfo > 300) alert("더 이상 아래로 이동시킬 수 없습니다.");
+		else div.style.top = moveInfo + "px"; // 경고가 안뜨는 경우만 이동을 시킨다.
+	} else {
+		if(moveInfo < 10) alert("더 이상 왼쪽으로 이동시킬 수 없습니다.");
+		else if(moveInfo > 500) alert("더 이상 오른쪽으로 이동시킬 수 없습니다.");
+		else div.style.left = moveInfo + "px";
+	}
+	
+}
+
+</script>
+
+</head>
+<body>
+<table>
+	<tr><td></td><td class="moveBtn" onclick="move('top', -10);">^</td><td></td></tr>
+	<tr>
+		<td class="moveBtn" onclick="move('left', -10);">&lt;</td><td></td>
+		<td class="moveBtn" onclick="move('left', 10);">&gt;</td>
+	</tr>
+	<tr><td></td><td class="moveBtn" onclick="move('top', 10);">v</td><td></td></tr>
+</table>
+<hr/>
+<div id="moveDiv"></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+header, nav, section, article, aside, footer{
+/* 	div를 구분해서 의미 있는 공간을 만들어서 사용하기 */
+	border: 1px double #888;
+}
+
+aside{
+width: 200px;
+float: right;
+}
+section{
+ width: 650px;
+ float: left;
+}
+footer{
+	/* 앞의 엘리먼트의 float 속성을 없애고 전체 줄에 지정하고 있는 현재 엘리먼트를 표시한다. */
+	clear: both;
+}
+</style>
+</head>
+<body>
+<header>여기가 해더 부분입니다. 이미지나 로고가 나타냅니다.</header>
+<nav>
+	<a href="../board/list.jsp">게시판</a> <a href="../image/list.jsp">이미지 겔러리</a>
+</nav>
+<section>
+	<article>여기에 하나의 주제에 대해서 논하고 있다.</article>
+	<article>여기에 하나의 주제에 대해서 논하고 있다.</article>
+</section>
+<aside>핫메뉴 주로사용</aside>
+<footer>
+	카피라이트나 회사명 연락처 오는길. 주소
+</footer>
+</body>
+</html>

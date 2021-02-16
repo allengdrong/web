@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블 실습</title>
+<style type="text/css">
+/* table : table 태그 선택. table, th:table과 th 태그 선택 */
+table{
+	width: 300px;
+	/* 테이블 전체를 가운데 놓기 */
+	margin: 0 auto; /* margin: 위아래마진 0  좌우마진 적당하게 분배 auto */
+}
+.name{
+	/* 글자의 가운데 정렬 - 칸 안에 글자를 칸의 가운데 정렬 : 기본은 왼쪽 정렬    */
+	text-align: center;
+}
+th, td{
+/* 아래의 3가지 속성에 해당되는 값들이 구분이 되는 경우 한꺼번에 설정하는 것은 지원 -> 각각의 속성 값에 알아서 배정된다. */
+ 	border: 1px solid black;
+/* 	border-width: 1px;  선의 두께  */
+/* 	border-style: solid;  선의 형태 : solid - 실선  */
+/* 	border-color: black;  선의 색 : black - 검정  */
+
+/* 	테이블의 간격을 무너뜨린다. */
+/* 	border-collapse: collapse; */
+}
+th {
+  background: black; /* 배경색 */
+  color: white; /* 글자색 */
+}
+</style>
+</head>
+<body>
+<h4>테이블 실습</h4>
+<table>
+<tr>
+	<th colspan="2">과목정보</th>
+</tr>
+<tr>
+	<td>JAVA</td>
+	<td class="name">이영환</td>
+</tr>
+<tr>
+	<td>웹표준</td>
+	<td class="name">홍길동</td>
+</tr>
+</table>
+</body>
+</html>

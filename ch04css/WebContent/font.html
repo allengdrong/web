@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+/* css는 상속이 된다. */
+*{
+	font-family: 궁서체, 굴림체;
+}
+
+#font1{
+	/* 글자체 선언 : 글자체, 글자체, ... - 처음 글자체가 없으면 다음 글자체를 선택한다. 선언된 모든 글자체가 없으면 기본 글자체가 선택이 된다.
+	     개발자가 가지고 있는 글자체가 보고 있는 사용자의 글자체에도 존재해야만 한다. */
+	font-family: "나눔손글씨 펜",궁서체;
+}
+
+#font2{
+	/* 글자 크기 - 보통 글자가 12pt이다. */
+	/* 크기의 단위 - px : pixel - 화면의 한 점. pt : point - 한 곳을 가지키는 단위(픽셀보다 조금 크다.)
+	   cm - 길이 단위. em - 글자의 배수 */
+/* 	font-size: 20px; */
+	font-size: 2em;
+	/* 글자색 */
+	color: #a0a;
+}
+</style>
+</head>
+<body>
+<div id="font1">
+ Font1입니다.
+</div>
+<div id="font2">
+ Font2입니다.
+</div>
+<div id="font3">
+ Font3입니다.
+</div>
+</body>
+</html>

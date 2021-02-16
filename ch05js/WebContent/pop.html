@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트의 팝업</title>
+<script type="text/javascript">
+	// 메시지를 출력하는 alert()
+	alert("안녕하세요?");
+	// 예/아니오(확인/취소)를 선택할 수 있는 confirm()
+	delete_ck = confirm("삭제할까요?");
+	alert(delete_ck);
+	// 사용예
+	if(delete_ck) document.write("삭제를 진행합니다.<br/>");
+	else document.write("삭제를 취소합니다.<br/>");
+	// 사용자가 데이터를 입력하는 prompt()
+	// 입력 받은 데이터를 변수 name에 저장
+	// 자바는 타입과 함께 선언을 먼저 해주고 사용해야만 한다.
+	// 자바 스크립트는 변수를 마음대로 사용 가능 -> 변수가 없으면 새로 만들어 준다.
+	name = prompt("이름을 입력하세요.");
+	alert("당신의 이름은 " + name + "입니다.");
+	alert(document.getElementById("name"));
+	// name의 span tag가 아래에 있으므로 객체를 못찾아서 innerHTML이 오류가 난다.
+	// document.getElementById("name").innerHTML = "당신의 이름은 " + name + "입니다.";
+	document.write("<span id='name'>당신의 이름은 " + name + "입니다.</span>");
+</script>
+</head>
+<body>
+</body>
+</html>

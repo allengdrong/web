@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js의 위치</title>
+<!-- js의 위치는 head tag 안쪽이나 body tag 안쪽에서 구현하여야 한다. -->
+<script type="text/javascript">
+	alert("head js");
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	alert("body js");
+</script>
+</body>
+<!-- html 밖에 있는 js는 브라우저가 body 안쪽 끝으로 강제 이주 시킨다.  -->
+<script type="text/javascript">
+	alert("after body js");
+</script>
+</html>
+<!-- html 밖에 있는 js는 브라우저가 body 안쪽 끝으로 강제 이주 시킨다.  -->
+<script type="text/javascript">
+	alert("after html js");
+</script>

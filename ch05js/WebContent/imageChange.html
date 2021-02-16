@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript">
+
+// 보여줄 이미지의 배열
+var images = ["img/s_snow01.jpg","img/s_snow02.jpg","img/naver.png"];
+
+function changeImg(index){
+	sel("image").src = images[index];
+}
+
+</script>
+</head>
+<body>
+<h1>이미지 바꾸기</h1>
+<button id="image1" onclick="changeImg(0);">눈오는 이미지1</button>
+<button id="image2" onclick="changeImg(1);">눈오는 이미지2</button>
+<button id="image3" onclick="changeImg(2);">네이버</button>
+<hr/>
+<img id="image">
+</body>
+</html>

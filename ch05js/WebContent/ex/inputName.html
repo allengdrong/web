@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="formUtil.js"></script>
+
+<script type="text/javascript">
+function dataCheck(){
+	// name이라는 id가 비어 있는지 검사.
+	/*
+	if(!sel("name").value){
+		// 경고
+		alert("이름을 입력하세요.");
+		// 커서
+		sel("name").focus();
+		// submit 취소 리턴하니까 호출하는 곳에서도 리턴해 주세요.
+		return false;
+	}
+	*/
+	if(!require(sel("name"), "이름")) return false;
+}
+</script>
+
+</head>
+<body>
+<form  onsubmit="return dataCheck();" action="#">
+이름 : <input id = "name"><button>전달</button>
+</form>
+</body>
+</html>

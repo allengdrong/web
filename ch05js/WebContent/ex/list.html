@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript">
+	subjects = ["JAVA", "ORACLE", "JavaScript","JSP"];
+	// ol - li - li ... /li /ol
+	// ol tag 시작
+	document.write("<ol>");
+	// 데이터가 있는 만큼 li tag
+	for(subject of subjects){
+		document.write("<li>");
+		document.write(subject);
+		document.write("</li>");
+	}
+	// ol tag 끝
+	document.write("</ol>");
+	document.write("<br/>");
+	
+	// li tag 만들고 -> ol tag로 둘러 싼다.
+	var str = "";
+	for(var i = 0; i< subjects.length; i++){
+		str += tag("li", subjects[i]);
+	}
+	str = tag("ol", str);
+	document.write(str);
+</script>
+</head>
+<body>
+<div id ="listDiv"></div>
+<script type="text/javascript">
+	sel("listDiv").innerHTML = str;
+</script>
+</body>
+</html>

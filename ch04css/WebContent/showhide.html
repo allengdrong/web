@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+/* img의 display 기본 속성을 inline -> none : 사라지게 한다. */
+img {
+	display: none;
+}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	$("#showImageBtn").click(function(){
+		$("img").show();
+	});
+	$("#hideImageBtn").click(function(){
+		$("img").hide();
+	});
+});
+</script>
+
+</head>
+<body>
+<h2>처음에는 이미지가 안보이게 한다.</h2>
+<button class="btn btn-default" id="showImageBtn">이미지 보이게</button>
+<button class="btn btn-default" id="hideImageBtn">이미지 안 보이게</button><br/>
+<img alt="이미지 입니다." src="img/s_snow01.jpg"><br/>
+이미지 밑에 글자.
+</body>
+</html>

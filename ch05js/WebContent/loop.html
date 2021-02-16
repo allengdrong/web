@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For의 확장</title>
+
+<script type="text/javascript">
+	var items = ["컴퓨터", "키보드", "모니터"];
+	// 배열 데이터를 인덱스 처리를 위한 in 키워드 : for(인덱스변수 in 배열)
+	for (idx in items){
+		alert(items[idx]);
+	}
+	for (var idx = 0 ; idx < items.length; ++idx){
+		alert(items[idx]);
+	}
+	
+	// 배열 데이터를 하나씩 꺼내서 꺼내온 변수를 처리하는 for문 키워드 of를 사용한다.-(향상된 for)
+	for(item of items){
+		alert(item);
+	}
+	
+	// body 태그 안에 ul태그를 이용해서 items 리스트를 출력하는 프로그램 작성
+	// ul tag 시작 부분 출력
+	document.write("<ul>");
+	// 데이터가 있는 만큼 반복문 처리
+	for(item of items){
+		// li tag를 출력한다.
+		document.write("<li>");
+		document.write(item);
+		document.write("</li>");
+	}
+	// ul tag 끝나는 부분
+	document.write("</ul>");
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

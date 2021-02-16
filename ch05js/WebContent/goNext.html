@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>다음 항목으로 자동 이동</title>
+
+<!-- formUtil.js 라이브러리 등록 -->
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="formUtil.js"></script>
+
+</head>
+<body>
+전화변호 : <input maxlength="3" onkeyup="goNext(this, sel('tel2'), 3)" id="tel1" style="width: 30px;">
+- <input maxlength="4" onkeyup="goNext(this, sel('tel3'), 4)" id="tel2" style="width: 40px;">
+- <input maxlength="4" onkeyup="goNext(this, sel('jumin1'), 4)" id="tel3" style="width: 40px;"> <br/>
+주민등록 번호 :
+ <input maxlength="6" onkeyup="goNext(this, sel('jumin2'), 6)" id="jumin1" style="width: 160px;">
+ - <input maxlength="7" onkeyup="goNext(this, sel('submitBtn'), 7)" id="jumin2" style="width: 160px;"><br/>
+ 
+ <button id="submitBtn">가입</button>
+ 
+</body>
+</html>

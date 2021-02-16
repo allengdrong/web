@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수를 이용한 태그 만들기</title>
+
+<!-- utility 함수 라이브러리 등록 -->
+<script type="text/javascript" src="util.js"></script>
+
+<style type="text/css">
+table, td, th{
+	border : 1px solid #888;
+}
+</style>
+
+<script type="text/javascript">
+// alert(tag("", "h1") + "첫번째 헤드 태그" + tag("/", "h1"));
+// document.write(pairTag("", "h1") + "첫번째 헤드 태그" + pairTag("/", "h1"));
+document.write(tag("h1", "첫번째 헤드 태그 * 데이터"));
+
+var items = ["컴퓨터","키보드","모니터"];
+// td - tr - table
+var str ="";
+for (item of items){
+	str += tag("tr", tag("td", item));
+	//alert(str);
+}
+document.write(tag("table", str));
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

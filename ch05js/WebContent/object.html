@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자 객체</title>
+<script type="text/javascript">
+
+// book 객체의 제목과 가격을 문자열로 돌려주는 함수 선언
+var toStringFunc = function(){
+	return this.title + "/" + this.price;
+}
+
+// 데이터 부분에 {} 를 사용하시면 Object로 인식한다.
+var book = {}; // book이라는 객체 선언
+// book 객체에 제목 항목의 데이터 저장
+// 데이터가 중간 중간에 생기는 경우 사용하는 방법
+book.title = "자바스크립트";// setter
+book.price = "18800";
+// book.print = function(){
+// 	return this.title + "/" + this.price;
+// }
+book.toString = toStringFunc;
+// alert(book.title + "/" + book.price);
+// alert(book.print());
+alert(book.toString());
+
+// 객체를 만들 당시에 데이터가 확정되어 있다. -> JSON 형식에 맞는 객체 생성과 데이터 셋팅
+book = {
+		title:"자바",
+		price:"30000",
+// 		toString : function(){
+// 			return this.title + " / " + this.price;
+// 		}
+		toString : toStringFunc
+}
+
+alert(book.toString());
+
+// Book 객체 생성자 선언 - book 다른 것이다.
+function Book(title, author, pages, price){
+	// 맨 처음에는 this.title이 없었다. JS에서는 사용하면 변수가 없으면 자동 만들어 놓고 값을 저장하게 된다.
+	this.title = title;
+	this.author = author;
+	this.pages = pages;
+	this.price = price
+}
+// 객체 생성해서 변수에 저장해서 사용가능하다.
+jsBook = new Book("자바스크립트", "홍길동", 500, 15000);
+alert("jsBook:" + jsBook);
+alert("jsBook 제목:" + jsBook.title);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

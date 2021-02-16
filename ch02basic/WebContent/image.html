@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- style tag 안에 선언된 것이 Style Sheet -->
+<style type="text/css">
+.imageList{
+	width: 300px;
+	height: 240px;
+}
+</style>
+</head>
+<body>
+<h3>이미지 그대로 표시하기</h3>
+<!-- 이미지를 표시하는 img 태그 -->
+<!-- alt : 만약에 이미지가 표시가 되지 않는다면 나타나는 글자. -->
+<!-- src : 이미지 자원의 위치 -->
+<!-- 내 서버의 위치(상태위치:현재 HTML 파일의 위치를 기준) - 서버를 지정하지 않다. : 라이센스 내용을 확인해야 합니다. -->
+<img alt="눈오는 밤 이미지 1" src="img/s_snow01.jpg">
+<!-- 네이버 강아지 이미지 표시 : 라이센스 내용을 확인하지 않아도 된다.-->
+<img alt="귀여운 강아지 1" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTAxMDRfNzcg%2FMDAxNjA5NzY5NjEzNzUy.v3d0hwG9ginVifnB6JfWxREE_MYDhrvDcsJcFhOfF_Ag.3StqS_iQnPE_Skyuiv6vZWbq3ypsEu8CMyGUBlZlVR8g.PNG.ychreey%2F15.png&type=sc960_832">
+<!-- 내서버의 위치(절대위치:맨 상위 위치 - '/ch02basic/' - '/ + path + /' : WebContent 위치) -->
+<img alt="눈오는 밤 이미지 2" src="/ch02basic/img/s_snow02.jpg">
+<br/>
+<h3>width와 height 속성을 이용한 이미지 크기 지정</h3>
+<img alt="눈오는 밤 이미지 1" src="img/s_snow01.jpg" width="300px" height="240px">
+<img alt="귀여운 강아지 1" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTAxMDRfNzcg%2FMDAxNjA5NzY5NjEzNzUy.v3d0hwG9ginVifnB6JfWxREE_MYDhrvDcsJcFhOfF_Ag.3StqS_iQnPE_Skyuiv6vZWbq3ypsEu8CMyGUBlZlVR8g.PNG.ychreey%2F15.png&type=sc960_832" width="300px" height="240px">
+<img alt="눈오는 밤 이미지 2" src="img/s_snow02.jpg" width="300px" height="240px">
+
+<h3>style(CSS)의 width와 height를 이용한 이미지 크기 지정</h3>
+<img alt="눈오는 밤 이미지 1" src="img/s_snow01.jpg" style="width: 300px;height: 240px;">
+<img alt="귀여운 강아지 1" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTAxMDRfNzcg%2FMDAxNjA5NzY5NjEzNzUy.v3d0hwG9ginVifnB6JfWxREE_MYDhrvDcsJcFhOfF_Ag.3StqS_iQnPE_Skyuiv6vZWbq3ypsEu8CMyGUBlZlVR8g.PNG.ychreey%2F15.png&type=sc960_832"  style="width: 300px;height: 240px;">
+<img alt="눈오는 밤 이미지 2" src="img/s_snow02.jpg" style="width: 300px;height: 240px;">
+
+<h3>CSS를 이용한 width와 height를 이용한 이미지 크기 지정</h3>
+<p>
+class = class이름 : 적용하려는 객체가 여러개일 때<br/>
+id = id이름 : 적용하려는 객체가 단 하나일 때
+</p>
+<img alt="눈오는 밤 이미지 1" src="img/s_snow01.jpg" class="imageList">
+<img alt="귀여운 강아지 1" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTAxMDRfNzcg%2FMDAxNjA5NzY5NjEzNzUy.v3d0hwG9ginVifnB6JfWxREE_MYDhrvDcsJcFhOfF_Ag.3StqS_iQnPE_Skyuiv6vZWbq3ypsEu8CMyGUBlZlVR8g.PNG.ychreey%2F15.png&type=sc960_832"  class="imageList">
+<img alt="눈오는 밤 이미지 2" src="img/s_snow02.jpg" class="imageList" >
+
+
+</body>
+</html>

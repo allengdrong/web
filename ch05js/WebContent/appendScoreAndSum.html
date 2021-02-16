@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- util.js 라이브러리 등록 : 태그 자동 만들기 사용 -->
+<script type="text/javascript" src="util.js"></script>
+
+
+<style type="text/css">
+	div{
+		border: 1px solid #888;
+		padding: 10px;
+		margin: 10px;
+	}
+</style>
+
+<script type="text/javascript">
+/* 이벤트 처리 ---------------------------- */
+
+// 점수를 모아 놓은 배열 선언
+var scores = [];
+
+// 추가 버튼 처리 함수
+function appendScore(){
+	var scoreInput = document.querySelector("#score");
+	// 점수 입력란을 찾아서 값을 가져온다.
+	var score = scoreInput.value;
+	// alert(score);
+	// alert(typeof score);
+	// 점수 배열에 점수를 추가시키기.
+	scores.push(Number(score));
+	// alert(scores);
+	// 점수 입력란 데이터 제거하고 커서를 점수 입력란에 다시 위치시킨다.
+	scoreInput.value = "";
+	scoreInput.focus();
+	// 배열을 가지고 ul 태그를 만들어 낸다.
+	var str = "";
+	var sum = 0;
+	// 점수의 갯수 만큼 li tag 만들어낸다.
+	scores.forEach(function(score){
+		// function tag(tagName, data)
+		// li tag 만들기
+		str += tag("li", score);
+		// 합계 구하기
+		sum += score;
+	});
+	// li tag 밖에 ul tag로 감싼다.
+	str = tag("ul", str);
+	// 작성된 태그를 표시한다.
+	document.querySelector("#scoreList").innerHTML = str;
+	// 계산된 합계를 표시한다.
+	document.querySelector("#sum > span").innerHTML = sum;
+}
+</script>
+
+<!-- document.querySelector, innerHTML, array.forEach(), Number() -->
+</head>
+<body>
+<div>
+	점수를 입력하세요.
+<!-- 	<input id="score" /> <button id="appendBtn" onclick="appendScore();">추가</button>  -->
+	<input id="score" /> <button id="appendBtn" >추가</button> 
+</div>
+<div id="scoreList">점수를 입력하세요.</div>
+<div id="sum"> 합계 : <span>0</span>점</div>
+<script type="text/javascript">
+	document.querySelector("#appendBtn").onclick = appendScore;
+</script>
+</body>
+</html>

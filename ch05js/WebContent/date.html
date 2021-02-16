@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>날짜객체 사용하기</title>
+
+<script type="text/javascript" src="util.js"></script>
+
+<script type="text/javascript">
+	// 오늘 날짜를 출력
+	document.write("오늘 날짜 :" + new Date() + "<br/>");
+	// 올해의 크리스마스 날짜 출력
+	document.write("2021년 크리스마스 : " + new Date("2021-12-25") + "<br/>");
+	document.write("02.05 오전9시20 : " + new Date("2021-02-05T09:20:00") + "<br/>");
+	// 오늘 날짜를 형식에 맞춰서 출력 해보자.
+	var today = new Date();
+ 	var year = today.getFullYear();
+	// getYear() -> 현재 년도에 1900년은 뺀 년도가 나온다.(1967 -> 67) -> 2000년도 이후 (2021 - 1900 -> 121)
+//	var year = today.getYear();
+	//alert(year);
+	// getMonth() -> 0 ~ 11 숫자가 나오므로 +1해서 사용한다.
+	var month = today.getMonth() + 1;
+	//alert(month);
+	var date = today.getDate();
+	//alert(date);
+	// 출력하고 싶은 양식으로 만들어 낸다.
+	todayStr = year + "-" + month + "-" + date;
+	document.write("형식에 맞춘 오늘날짜:" + todayStr + "<br/>");
+	// alert(typeof today);
+	// alert(year.getFullYear());
+	// 오늘 날짜를 형식에 맞춰서 출력
+	document.write("형식 함수 이용한 오늘 날짜 : "+dateToStr(today, "-", "week") + "<br/>");
+	document.write("형식 함수 이용한 오늘 날짜 : "+dateToStr(today, ".", "week") + "<br/>");
+	
+	// 크리스마스 까지 남은 일자. -> 시간부분은 버린다. Math.floor(실수) : 버림, Math.round(실수) : 반올림.
+	// 오늘 날짜 -> 위에서 today로 저장을 해놨다.
+	// 크리스마스
+	var chrisDate = new Date("2021-12-25");
+	// 1/1000초 단위로 날짜 숫자를 받아 온다. - getTime()	
+	// 2개의 날짜 차이 계산
+	var miliSec = chrisDate.getTime() - today.getTime();
+	// 2개의 날짜 값의 차이를 일로 계산 : 차이숫자 / (밀리초 * 60초 * 60분 * 24시간)
+	var defDatePoint = miliSec /(1000 * 60 * 60 * 24);
+	var defDate = Math.floor(defDatePoint);
+	document.write("크리스마스까지 남은 날짜 : " + defDate + "일 입니다.");
+</script>
+</head>
+<body>
+
+</body>
+</html>

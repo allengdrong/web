@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS의 동작 시점</title>
+<!-- html과 어울려져서 실행이 된다. 위에서 아래로 실행 -->
+<script type="text/javascript">
+	// alert("데이터") - 화면에 팝업으로 메시지를 출력하는 함수.
+	//   - 흐름을 확인할 때. 데이터를 확인할 때. 처리 결과를 보여 줄 때
+	// id="name" 객체를 찾지 못함. 
+	alert("head : " + document.getElementById("name"));
+</script>
+<!-- 밖에 있는 js 파일을 여기에서 실행하게 된다. -->
+<!-- script tag 안에 script 처리문을 사용할 수 없다. -->
+<script type="text/javascript" src="outter.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	// id="name" 객체를 찾지 못함. 
+	alert("body before name : " + document.getElementById("name"));
+</script>
+<span id="name">이영환</span>
+<script type="text/javascript">
+	// id="name" 객체를 찾음. -> 그 안에 있는 데이터를 출력할 수 있다. -> span tag 해당되는 object
+	alert("body after name : " + document.getElementById("name"));
+	// alert(object.innerHTML) -> 출력용으로 사용 : get data
+	// object.innerHTML = "data" -> 입력용으로 사용 : set data -> 데이터의 변경(화면에 보여지는 내용 변경)
+	alert("body after name innerHTML : " + document.getElementById("name").innerHTML);
+</script>
+</body>
+</html>

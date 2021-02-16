@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS의 이벤트 처리</title>
+</head>
+<body onload="alert('로딩이 다 됐어요')">
+<div onclick="alert('클릭했어요')">클릭하세요.</div>
+<div onmouseover="alert('마우스가 올라 갔어요')">마우스를 올리세요.</div>
+데이터 입력하세요. <input onkeyup="alert('키보드 버튼이 눌렸다가 올라갔어요.');" ><br/>
+커서를 위치시키세요. <input onfocus="alert('커서가 여기에 들어 왔어요')"><br/>
+데이터를 바꾸세요.
+<select onchange="alert('데이터가 바꿨어요.');">
+	<option>선택하세요.</option>
+	<option>HTML</option>
+	<option>CSS</option>
+	<option>JavaScript</option>
+	<option>jQuery</option>
+</select>
+</body>
+</html>

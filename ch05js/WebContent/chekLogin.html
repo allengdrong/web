@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 페이지 - 데이터 확인</title>
+
+<script type="text/javascript" src="util.js"></script>
+
+<style type="text/css">
+	.requedItem{
+		color: red;
+	}
+</style>
+
+<script type="text/javascript">
+
+function checkSubmit(){
+	// alert("checkSubmit()");
+	
+	// 필수 데이터 항목 확인
+	// id(아이디) - id가 id인 객체를 찾아서  변수 id 에 저장해 놓는다.
+	var id = sel("id");
+	// 데이터가 없는 경우의 처리
+	if(!id.value){
+		// 경고 메시지
+		alert("아이디는 반드시 입력하셔야 합니다.");
+		// 커서를 비밀번호 입력란에 위치 시킨다.
+		id.focus();
+		// submit()을 취소 시킨다.
+		return false;
+	}
+	
+	// pw(비밀번호) - id가 pw인 객체를 찾아서  변수 pw 에 저장해 놓는다.
+	var pw = sel("pw");
+	// 데이터가 없는 경우의 처리
+	if(!pw.value){
+		// 경고 메시지
+		alert("비밀번호를 반드시 입력하셔야 합니다.");
+		// 커서를 비밀번호 입력란에 위치 시킨다.
+		pw.focus();
+		// submit()을 취소 시킨다.
+		return false;
+	}
+	
+	// 최소 길이 제한 확인
+	// 아이디와 비밀번호는 4자 이상
+	if(id.value.length < 4){
+		alert("아이디는 4자 이상이여야 합니다.");
+		id.focus();
+		return false;
+	}
+	
+	alert(pw.type);
+	// 비밀번호 -> 경고, 포커스, 입력데이터 지우기, return false
+	if(pw.value.length < 4){
+		alert("비밀번호는 4자 이상이여야 합니다.");
+		pw.value = "";
+		pw.focus();
+		return false;
+	}
+	
+	// submit() 취소 시킨다.
+	// 이벤트 처리하는 곳에서도 return을 하고 있도록 작성한다.
+	return false;
+}
+
+// input 태그의 공백문자를 제거하는 함수.
+// 값의 공백을 제거한 후 다시 입력 란의 값으로 넣어 준다.
+function removeBlank(inputObj){
+	//alert("removeBlank()");
+	var v = inputObj.value;
+	//alert("["+ v +"]");
+	inputObj.value = v.trim();
+	//alert("[" + inputObj.value + "]");
+}
+
+
+</script>
+
+</head>
+<body>
+<h1>로그인</h1>
+<span class="requedItem">*</span> 는 필수입력입니다.
+<!-- form tag에서 전송이 일어나면 submit 이벤트가 발생된다. onsubmit = "return false" - submit() 취소시킨다. -->
+<form action="#" method="post" id="loginForm" onsubmit="return checkSubmit();">
+	<label><span class="requedItem">*</span> 아이디</label>
+	<input name = "id" id="id" placeholder="4자 이상 입력" onkeyup="removeBlank(this);"><br/>
+	<label><span class="requedItem">*</span> 비밀번호</label>
+	<input name = "pw" id="pw" type="password" placeholder="4자 이상 입력"><br/>
+	<button id="loginBtn">로그인</button>
+</form>
+
+</body>
+</html>

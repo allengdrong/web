@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수의 선언과 호출</title>
+
+<style type="text/css">
+.cursor_pointer:hover{
+	color: red;
+	cursor: pointer;
+}
+</style>
+
+<script type="text/javascript">
+// 문서가 로딩이 된 후 처리되는 함수 선언
+function ready(){
+	alert("문서가 로딩이 다 되면 실행되는 부분");
+}
+
+// 클릭을 하면 처리되는 함수
+function span_click(){
+	alert("여기를 클릭했어요");
+}
+
+// 클릭한 객체로부터 전달받은 데이터를 표시하는 함수
+function span_click_viewText(data){
+	alert(data);
+}
+
+// 변수에 저장된 함수 선언
+func_noname = function(){
+	alert("이름이 없는 함수 호출하고 있다. 변수에 함수를 저장했다가 꺼내서 호출해서 실행하는 원리를 가지고 있다.");
+}
+
+// 자바스크립트의 객체 -> 데이터 저장, 처리하는 함수 -> JSON
+
+</script>
+
+</head>
+<body onload="ready();">
+<span onclick="span_click();" class="cursor_pointer">여기를 클릭하세요.</span><br/>
+<!-- this : this를 포함하고 있는 객체 자신 -->
+<span onclick="span_click_viewText(this.innerHTML)" class="cursor_pointer">자바</span>
+<span onclick="span_click_viewText(this.innerHTML)" class="cursor_pointer">오라클</span>
+<span onclick="func_noname()" class="cursor_pointer">익명함수 호출</span>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+div{
+	border: 2px solid #73AD21;
+	padding: 50px;
+	margin: 30px;
+	width: 700px;
+	height: 80px;
+	/* 글자 좌우 가운데 정렬 */
+	text-align: center;
+	/* 글자 위 아래 가운데 정렬 ??? */
+	
+	/* 글자의 모양 */
+	font-size: 24pt;
+	
+	/* div의 배경색 지정 - 아래에 겹치는 부분이 생기면 투영되서 올라오게 된다. 배경색이나 배경이미지를 지정해서 막는다. */
+	background: white;
+}
+
+#div2, #div3, #div4{
+	/* 둥근 모서리 만들기 */
+	border-radius: 25px
+}
+#div3{
+	/* 그림자 - 박스 - box-shoadow: 좌(-)우(+) 위(-)아래(+) [끝을 기준으로 흐름지는 위치] [색상] */
+	box-shadow: 20px 20px 5px green;
+}
+
+#div4{
+	/* 그림자 - 글자 - text-shadow : 좌(-)우(+) 위(-)아래(+) [퍼짐정도] [색상] */
+	text-shadow: 2px 2px 3px green;
+	
+}
+
+#div5{
+	height: 60px;
+	padding: 15px;
+	border-radius: 45px; 
+}
+
+</style>
+
+</head>
+<body>
+<div id="div1">원래의 div</div>
+<div id="div2">모서리가 둥근 테두리 div</div>
+<div id="div3">모서리가 둥근 테두리 div의 그림자</div>
+<div id="div4">모서리가 둥근 테두리 div 안에 글자 그림자</div>
+<div id="div5"> 원호 사각형</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 페이지 - 데이터 확인</title>
+
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="formUtil.js"></script>
+
+<style type="text/css">
+	.requedItem{
+		color: red;
+	}
+</style>
+
+<script type="text/javascript">
+
+// submit()하기 전에 데이터 유효성 검사를 진행하고 submit()하자.
+function checkSubmit(){
+	// alert("checkSubmit()");
+	
+	// 필수 데이터 항목 확인
+	// id(아이디) - formUtil.js에 있는 if(!require(input객체, 항목이름)) return false;
+	if(!require(sel("id"), "아이디")) return false; //-- require()의 처리 결과가 false가 나오면 submit()을 취소시킨다.
+	
+	// alert("아이디 체크 끝");
+	
+	// pw(비밀번호) - formUtil.js에 있는 if(!require(input객체, 항목이름)) return false;
+	if(!require(sel("pw"), "비밀번호")) return false; //-- require()의 처리 결과가 false가 나오면 submit()을 취소시킨다.
+	
+	
+	// 최소 길이 제한 확인
+	// 아이디는 4자 이상
+	if(!checkLength(sel("id"), "아이디", 4)) return false;
+	
+	// 비밀번호 -> 경고, 포커스, 입력데이터 지우기, return false
+	if(!checkLength(sel("pw"), "비밀번호", 5)) return false;
+	
+	// submit() 취소 시킨다.
+	// 이벤트 처리하는 곳에서도 return을 하고 있도록 작성한다.
+	return false;
+}
+
+
+// -> 길이나 형태 한꺼번에 확인하는 방법 -> 정규표현식
+
+// 공백 제거하는 removeBlank(input객체)는 formUtil.js에 등록해 놓음. 
+
+
+</script>
+
+</head>
+<body>
+<h1>로그인</h1>
+<span class="requedItem">*</span> 는 필수입력입니다.
+<!-- form tag에서 전송이 일어나면 submit 이벤트가 발생된다. onsubmit = "return false" - submit() 취소시킨다. -->
+<form action="#" method="post" id="loginForm" onsubmit="return checkSubmit();">
+	<label><span class="requedItem">*</span> 아이디</label>
+	<input name = "id" id="id" placeholder="4자 이상 입력" onkeyup="removeBlank(this);"><br/>
+	<label><span class="requedItem">*</span> 비밀번호</label>
+	<input name = "pw" id="pw" type="password" placeholder="4자 이상 입력"><br/>
+	<button id="loginBtn">로그인</button>
+</form>
+
+</body>
+</html>

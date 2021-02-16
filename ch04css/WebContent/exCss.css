@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/* script tag 안에 있다라고 생각하고 작성한다. */
+
+/* 모든 글자를 회색으로 만들어 보자. */
+* {
+	color: #555;
+}
+
+/* aqua id */
+#aqua{
+	color: aqua;
+}
